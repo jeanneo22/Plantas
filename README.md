@@ -1,4 +1,4 @@
 Plantas
 =======
 
-Implementação de uma classe Plantas em C++
+Implementação de uma classe Plantas do jogo Plantas Vs Zumbis em C++
