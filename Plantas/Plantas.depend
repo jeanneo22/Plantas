@@ -1,0 +1,18 @@
+# depslib dependency file v1.0
+1411323921 source:c:\users\jeanne\documents\materiais do curso de ciência da computação\4º semestre período 4\programação 2\nova pasta\plantas\main.cpp
+	<iostream>
+	<cstring>
+	"Plantas.h"
+
+1411324865 c:\users\jeanne\documents\materiais do curso de ciência da computação\4º semestre período 4\programação 2\nova pasta\plantas\plantas.h
+	<cstring>
+
+1411336817 source:c:\users\jeanne\documents\materiais do curso de ciência da computação\4º semestre período 4\programação 2\trabalho 2\plantas\main.cpp
+	<iostream>
+	<cstring>
+	<cstdlib>
+	"Plantas.h"
+
+1411337001 c:\users\jeanne\documents\materiais do curso de ciência da computação\4º semestre período 4\programação 2\trabalho 2\plantas\plantas.h
+	<cstring>
+
