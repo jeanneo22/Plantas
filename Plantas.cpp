@@ -1,10 +1,9 @@
-#include "plantas.h"
+#include "Plantas.h"
 #include<iostream>
 #include<cstring>
 #include<cstdlib>
 using std::cout;
 using std::string;
-#include"plantas.h"
 
 // constroi uma planta a partir de outra
 Plantas(const Plantas *ob){
