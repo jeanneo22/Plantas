@@ -91,5 +91,7 @@
   </Settings>
   <VirtualDirectory Name="src">
     <File Name="main.cpp"/>
+    <File Name="Plantas.h"/>
+    <File Name="Plantas.cpp"/>
   </VirtualDirectory>
 </CodeLite_Project>

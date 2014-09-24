@@ -1,7 +1,7 @@
 #ifndef PLANTAS_H
 #define PLANTAS_H
 
-int cargaSol = 0; // define cargaSol como uma variável global
+int cargaSol = 100; // define cargaSol como uma variável global
 #include<cstring>
 using std::string;
 class Plantas {
@@ -11,12 +11,12 @@ class Plantas {
         int resistencia;
         string tipoAtaque;
         float velocidadeAtaque;
-        int cargaSolMinima;
+        int cargaSolMinima; // carga de sol minima para gerar uma planta
     public:
         Plantas(const Plantas *ob); // constroi uma planta a partir de outra
 
         // constroi uma Pea Shooter com parâmetros default no nivel 1
-        Plantas(string tipoPlanta = "Pea Shooter", int quantMaxPlantas = 9,string resistencia = "normal",string tipoAtaque = "Feijao Explosivo",float velocidadeAtaque = 2.0,int cargaSolMinima = 50);
+        Plantas(string tipoPlanta = "Pea Shooter", int quantMaxPlantas = 9,string resistencia = "normal",string tipoAtaque = "Feijao Explosivo",float velocidadeAtaque = 2.0,int cargaSolMinima = 100);
         string getResistencia();
         string getTipoAtaque();
         int getVelocidadeAtaque();

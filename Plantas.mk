@@ -5,16 +5,16 @@
 ## Debug
 ProjectName            :=Plantas
 ConfigurationName      :=Debug
-WorkspacePath          := "E:\4º semestre período 4\Programação 2\ProjetoProg2\Prog2"
-ProjectPath            := "E:\4º semestre período 4\Programação 2\ProjetoProg2\Prog2\Plantas"
+WorkspacePath          := "C:\Users\Jeanne\Documents\Materiais do curso de ciência da computação\4º semestre período 4\Programação 2\ProjetoProg2"
+ProjectPath            := "C:\Users\Jeanne\Documents\Materiais do curso de ciência da computação\4º semestre período 4\Programação 2\ProjetoProg2\Plantas"
 IntermediateDirectory  :=./Debug
 OutDir                 := $(IntermediateDirectory)
 CurrentFileName        :=
 CurrentFilePath        :=
 CurrentFileFullPath    :=
-User                   :=LAB4-PC03
-Date                   :=22/09/2014
-CodeLitePath           :="C:\Program Files\CodeLite"
+User                   :=Jeanne
+Date                   :=09/24/14
+CodeLitePath           :="C:\Program Files (x86)\CodeLite"
 LinkerName             :=g++
 SharedObjectLinkerName :=g++ -shared -fPIC
 ObjectSuffix           :=.o
@@ -47,21 +47,23 @@ LibPath                := $(LibraryPathSwitch).
 
 ##
 ## Common variables
-## AR, CXX, CC, CXXFLAGS and CFLAGS can be overriden using an environment variables
+## AR, CXX, CC, AS, CXXFLAGS and CFLAGS can be overriden using an environment variables
 ##
 AR       := ar rcus
 CXX      := g++
 CC       := gcc
 CXXFLAGS :=  -g -O0 -Wall $(Preprocessors)
 CFLAGS   :=  -g -O0 -Wall $(Preprocessors)
+ASFLAGS  := 
+AS       := as
 
 
 ##
 ## User defined environment variables
 ##
-CodeLiteDir:=C:\Program Files\CodeLite
+CodeLiteDir:=C:\Program Files (x86)\CodeLite
 UNIT_TEST_PP_SRC_DIR:=C:\UnitTest++-1.3
-Objects0=$(IntermediateDirectory)/main$(ObjectSuffix) 
+Objects0=$(IntermediateDirectory)/main.cpp$(ObjectSuffix) $(IntermediateDirectory)/Plantas.cpp$(ObjectSuffix) 
 
 
 
@@ -88,13 +90,21 @@ PreBuild:
 ##
 ## Objects
 ##
-$(IntermediateDirectory)/main$(ObjectSuffix): main.cpp $(IntermediateDirectory)/main$(DependSuffix)
-	$(CXX) $(IncludePCH) $(SourceSwitch) "E:/4º semestre período 4/Programação 2/ProjetoProg2/Prog2/Plantas/main.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/main$(ObjectSuffix) $(IncludePath)
-$(IntermediateDirectory)/main$(DependSuffix): main.cpp
-	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/main$(ObjectSuffix) -MF$(IntermediateDirectory)/main$(DependSuffix) -MM "main.cpp"
+$(IntermediateDirectory)/main.cpp$(ObjectSuffix): main.cpp $(IntermediateDirectory)/main.cpp$(DependSuffix)
+	$(CXX) $(IncludePCH) $(SourceSwitch) "C:/Users/Jeanne/Documents/Materiais do curso de ciência da computação/4º semestre período 4/Programação 2/ProjetoProg2/Plantas/main.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/main.cpp$(ObjectSuffix) $(IncludePath)
+$(IntermediateDirectory)/main.cpp$(DependSuffix): main.cpp
+	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/main.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/main.cpp$(DependSuffix) -MM "main.cpp"
 
-$(IntermediateDirectory)/main$(PreprocessSuffix): main.cpp
-	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/main$(PreprocessSuffix) "main.cpp"
+$(IntermediateDirectory)/main.cpp$(PreprocessSuffix): main.cpp
+	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/main.cpp$(PreprocessSuffix) "main.cpp"
+
+$(IntermediateDirectory)/Plantas.cpp$(ObjectSuffix): Plantas.cpp $(IntermediateDirectory)/Plantas.cpp$(DependSuffix)
+	$(CXX) $(IncludePCH) $(SourceSwitch) "C:/Users/Jeanne/Documents/Materiais do curso de ciência da computação/4º semestre período 4/Programação 2/ProjetoProg2/Plantas/Plantas.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/Plantas.cpp$(ObjectSuffix) $(IncludePath)
+$(IntermediateDirectory)/Plantas.cpp$(DependSuffix): Plantas.cpp
+	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/Plantas.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/Plantas.cpp$(DependSuffix) -MM "Plantas.cpp"
+
+$(IntermediateDirectory)/Plantas.cpp$(PreprocessSuffix): Plantas.cpp
+	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/Plantas.cpp$(PreprocessSuffix) "Plantas.cpp"
 
 
 -include $(IntermediateDirectory)/*$(DependSuffix)
@@ -102,9 +112,8 @@ $(IntermediateDirectory)/main$(PreprocessSuffix): main.cpp
 ## Clean
 ##
 clean:
-	$(RM) $(IntermediateDirectory)/main$(ObjectSuffix)
-	$(RM) $(IntermediateDirectory)/main$(DependSuffix)
-	$(RM) $(IntermediateDirectory)/main$(PreprocessSuffix)
+	$(RM) ./Debug/*$(ObjectSuffix)
+	$(RM) ./Debug/*$(DependSuffix)
 	$(RM) $(OutputFile)
 	$(RM) $(OutputFile).exe
 	$(RM) "../.build-debug/Plantas"

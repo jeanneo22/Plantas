@@ -1,7 +1,7 @@
 #include "Plantas.h"
-#include<iostream>
-#include<cstring>
-#include<cstdlib>
+#include <iostream>
+#include <cstring>
+#include <cstdlib>
 using std::cout;
 using std::string;
 
@@ -16,7 +16,7 @@ Plantas(const Plantas *ob){
 
 }
 // constroi uma Pea Shooter com parâmetros default no nivel 1
-Plantas(string tPlanta = "Pea Shooter", int qMaxPlantas = 9,string r = "normal",string tAtaque = "Feijao Explosivo",float vAtaque,int cSolMinima = 50) {
+Plantas(string tPlanta = "Pea Shooter", int qMaxPlantas = 9,string r = "normal",string tAtaque = "Feijao Explosivo",float vAtaque,int cSolMinima = 100) {
     if(cSolMinima <= cargaSol) {
         tipoPlanta = tPlantas;
         quantMaxPlantas = qMaxPlantas;
@@ -29,13 +29,13 @@ Plantas(string tPlanta = "Pea Shooter", int qMaxPlantas = 9,string r = "normal",
 }
 void resistir(int const *resistencia) {
     if(*resistencia == "baixo") {
-        delete(&Plantas);
+	   cout << "Fim da planta";
     }else if(*resistencia == "normal") {
         delay(2000);
-        delete(&Plantas);
+        cout << "Fim da planta";
     }else if(*resistencia == "alto") {
         delay(5000);
-        delete(&Plantas);
+        cout << "Fim da planta";
     }
 }
 string getResistencia() { return resistencia;}
@@ -47,7 +47,7 @@ int getVelocidadeAtaque(){ return velocidadeAtaque;}
 void atacar(string tipoAtaque,float velocidadeAtaque,int nAtaques) {
     if(nAtaques != 0) {
         delay(nAtaques * velocidadeAtaque);
-        cout << tipoAtaque "\n";
+        cout << tipoAtaque << "\n";
         atacar(tipoAtaque,velocidadeAtaque);
         nAtaques--;
     }else{ return; }
