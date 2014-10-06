@@ -1,5 +1,5 @@
 #include <iostream>
-#include <cstring>
+#include <string>
 #include <cstdlib>
 #include "Plantas.h"
 using namespace std;
@@ -7,9 +7,8 @@ using namespace std;
 int main()
 {
     Plantas ob;
-    ob.atacar(ob.getTipoAtaque(),ob.getVelocidadeAtaque(),5);
-	string r = ob.getResistencia();
-    ob.resistir(&r);
-    ob.coletarSol(&cargaSol,3);
+	ob.resistir();
+	ob.atacar();
+	ob.coletarSol(2);
     return 0;
 }

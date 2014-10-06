@@ -5,22 +5,22 @@
 ## Debug
 ProjectName            :=Plantas
 ConfigurationName      :=Debug
-WorkspacePath          := "C:\Users\Jeanne\Documents\Materiais do curso de ciência da computação\4º semestre período 4\Programação 2\ProjetoProg2"
-ProjectPath            := "C:\Users\Jeanne\Documents\Materiais do curso de ciência da computação\4º semestre período 4\Programação 2\ProjetoProg2\Plantas"
+WorkspacePath          := "C:\Users\Jeanne\MyWorkspaces\Workspace2"
+ProjectPath            := "C:\Users\Jeanne\MyWorkspaces\Workspace2\Plantas"
 IntermediateDirectory  :=./Debug
 OutDir                 := $(IntermediateDirectory)
 CurrentFileName        :=
 CurrentFilePath        :=
 CurrentFileFullPath    :=
 User                   :=Jeanne
-Date                   :=09/24/14
+Date                   :=10/05/14
 CodeLitePath           :="C:\Program Files (x86)\CodeLite"
-LinkerName             :=g++
-SharedObjectLinkerName :=g++ -shared -fPIC
+LinkerName             :=C:/MinGW-4.8.1/bin/g++.exe 
+SharedObjectLinkerName :=C:/MinGW-4.8.1/bin/g++.exe -shared -fPIC
 ObjectSuffix           :=.o
 DependSuffix           :=.o.d
-PreprocessSuffix       :=.o.i
-DebugSwitch            :=-gstab
+PreprocessSuffix       :=.i
+DebugSwitch            :=-g 
 IncludeSwitch          :=-I
 LibrarySwitch          :=-l
 OutputSwitch           :=-o 
@@ -31,12 +31,12 @@ OutputFile             :=$(IntermediateDirectory)/$(ProjectName)
 Preprocessors          :=
 ObjectSwitch           :=-o 
 ArchiveOutputSwitch    := 
-PreprocessOnlySwitch   :=-E 
+PreprocessOnlySwitch   :=-E
 ObjectsFileList        :="Plantas.txt"
 PCHCompileFlags        :=
 MakeDirCommand         :=makedir
 RcCmpOptions           := 
-RcCompilerName         :=windres
+RcCompilerName         :=C:/MinGW-4.8.1/bin/windres.exe 
 LinkOptions            :=  
 IncludePath            :=  $(IncludeSwitch). $(IncludeSwitch). 
 IncludePCH             := 
@@ -49,13 +49,13 @@ LibPath                := $(LibraryPathSwitch).
 ## Common variables
 ## AR, CXX, CC, AS, CXXFLAGS and CFLAGS can be overriden using an environment variables
 ##
-AR       := ar rcus
-CXX      := g++
-CC       := gcc
+AR       := C:/MinGW-4.8.1/bin/ar.exe rcu
+CXX      := C:/MinGW-4.8.1/bin/g++.exe 
+CC       := C:/MinGW-4.8.1/bin/gcc.exe 
 CXXFLAGS :=  -g -O0 -Wall $(Preprocessors)
 CFLAGS   :=  -g -O0 -Wall $(Preprocessors)
 ASFLAGS  := 
-AS       := as
+AS       := C:/MinGW-4.8.1/bin/as.exe 
 
 
 ##
@@ -91,7 +91,7 @@ PreBuild:
 ## Objects
 ##
 $(IntermediateDirectory)/main.cpp$(ObjectSuffix): main.cpp $(IntermediateDirectory)/main.cpp$(DependSuffix)
-	$(CXX) $(IncludePCH) $(SourceSwitch) "C:/Users/Jeanne/Documents/Materiais do curso de ciência da computação/4º semestre período 4/Programação 2/ProjetoProg2/Plantas/main.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/main.cpp$(ObjectSuffix) $(IncludePath)
+	$(CXX) $(IncludePCH) $(SourceSwitch) "C:/Users/Jeanne/MyWorkspaces/Workspace2/Plantas/main.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/main.cpp$(ObjectSuffix) $(IncludePath)
 $(IntermediateDirectory)/main.cpp$(DependSuffix): main.cpp
 	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/main.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/main.cpp$(DependSuffix) -MM "main.cpp"
 
@@ -99,7 +99,7 @@ $(IntermediateDirectory)/main.cpp$(PreprocessSuffix): main.cpp
 	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/main.cpp$(PreprocessSuffix) "main.cpp"
 
 $(IntermediateDirectory)/Plantas.cpp$(ObjectSuffix): Plantas.cpp $(IntermediateDirectory)/Plantas.cpp$(DependSuffix)
-	$(CXX) $(IncludePCH) $(SourceSwitch) "C:/Users/Jeanne/Documents/Materiais do curso de ciência da computação/4º semestre período 4/Programação 2/ProjetoProg2/Plantas/Plantas.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/Plantas.cpp$(ObjectSuffix) $(IncludePath)
+	$(CXX) $(IncludePCH) $(SourceSwitch) "C:/Users/Jeanne/MyWorkspaces/Workspace2/Plantas/Plantas.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/Plantas.cpp$(ObjectSuffix) $(IncludePath)
 $(IntermediateDirectory)/Plantas.cpp$(DependSuffix): Plantas.cpp
 	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/Plantas.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/Plantas.cpp$(DependSuffix) -MM "Plantas.cpp"
 

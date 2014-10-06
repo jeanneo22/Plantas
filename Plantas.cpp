@@ -1,58 +1,62 @@
 #include "Plantas.h"
 #include <iostream>
-#include <cstring>
+#include <string>
 #include <cstdlib>
 using std::cout;
+using std::cin;
+using std::endl;
 using std::string;
-
-// constroi uma planta a partir de outra
-Plantas(const Plantas *ob){
-    tipoPlanta = ob->tipoPlanta;
-    quantMaxPlantas = ob->quantMaxPlantas;
-    resistencia = ob->resistencia;
-    tipoAtaque = ob->tipoAtaque;
-    velocidadeAtaque = ob->velocidadeAtaque;
-    cargaSolMinima = ob->cargaSolMinima;
-
+/*Plantas::Plantas()
+{
 }
-// constroi uma Pea Shooter com parâmetros default no nivel 1
-Plantas(string tPlanta = "Pea Shooter", int qMaxPlantas = 9,string r = "normal",string tAtaque = "Feijao Explosivo",float vAtaque,int cSolMinima = 100) {
-    if(cSolMinima <= cargaSol) {
-        tipoPlanta = tPlantas;
-        quantMaxPlantas = qMaxPlantas;
-        resistencia = r;
-        tipoAtaque = tAtaque;
-        velocidadeAtaque = vAtaque;
-        cargaSolMinima = cSolMinima;
-    }else
-        return;
+*/
+int Plantas::cargaSol = 0;
+int Plantas::quantMaxPlantas = 9;
+Plantas::Plantas(const Plantas &p) 
+{
+	if(p.cargaSolMinima <= cargaSol) {
+		tipoPlanta = p.tipoPlanta;
+		resistencia = p.resistencia;
+		tipoAtaque = p.tipoAtaque;
+		velocidadeAtaque = p.velocidadeAtaque;
+		cargaSol = cargaSol - p.cargaSolMinima;
+	}
 }
-void resistir(int const *resistencia) {
-    if(*resistencia == "baixo") {
-	   cout << "Fim da planta";
-    }else if(*resistencia == "normal") {
-        delay(2000);
-        cout << "Fim da planta";
-    }else if(*resistencia == "alto") {
-        delay(5000);
-        cout << "Fim da planta";
-    }
+void Plantas::setQuantMaxPlantas(int qMP) 
+{
+	if(qMP >= 9 && qMP <= 45)
+		quantMaxPlantas = qMP;
 }
-string getResistencia() { return resistencia;}
+void Plantas::setCargaSolMinima(int cSM)
+{
+	if(cSM >= 0)
+		cargaSolMinima = cSM;
+}
+void Plantas::setResistencia(int r)
+{
+	if(r==20 || r==60 || r==100)
+		resistencia = r;
+}
+void Plantas::atacar() const
+{
+	cout << "TipoAtaque = "<< tipoAtaque << endl;
+	cout << "Velocidade de ataque = " << velocidadeAtaque << endl;
+}
+void Plantas::coletarSol(const int sol) 	
+{
+	cargaSol = 0;
+	cargaSol = cargaSol + 25*sol;
+	cout << "Carga Sol: "<< cargaSol << endl;
+}
+void Plantas::exibePlanta() const
+{
+	cout << "Planta: " << tipoPlanta << endl;
+	cout << "Resistencia atual: " << resistencia << endl;
+	cout << "Tipo de Ataque: " << tipoAtaque << endl;
+	cout << "Velocidade de Ataque: " << velocidadeAtaque << endl;
+	cout << "Carga de sol minima para criar a planta: " << cargaSolMinima << endl;
+	
+}
 
-string getTipoAtaque() { return tipoAtaque; }
 
-int getVelocidadeAtaque(){ return velocidadeAtaque;}
-
-void atacar(string tipoAtaque,float velocidadeAtaque,int nAtaques) {
-    if(nAtaques != 0) {
-        delay(nAtaques * velocidadeAtaque);
-        cout << tipoAtaque << "\n";
-        atacar(tipoAtaque,velocidadeAtaque);
-        nAtaques--;
-    }else{ return; }
-}
-inline void coletarSol(int const *cargaSol, int sol) {
-    (*cargaSol) += 25 * sol;
-}
 
